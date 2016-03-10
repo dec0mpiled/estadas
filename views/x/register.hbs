@@ -1,0 +1,47 @@
+<nav class="navbar">
+ <div class="wrapper">
+  <a class="navbar-brand" href="/">Estadas</a>
+ </div>
+</nav>
+
+<div class="wrapper">
+ 
+ <div class="frame body-frame">
+     
+     <div class="bit-100 posts">
+     
+     <form id="regform" name="refform" action="/auth/register/{{verify}}" method="post">    
+         <h1>Register on Estadas</h1>
+         <hr style="border-top: dashed 1px;">
+         <br>
+         {{#if info}}
+          <font color="red">{{info}}</font>
+          {{/if}}
+         <input name="name" id="name" class="input-username" type="text" required placeholder="screen name">
+         <br>
+         <input name="age" id="age" type="number" class="input-username" placeholder="age (at least 13)"> 
+         <br>
+         <input name="username" id="username" class="input-username" maxlength=16 required onkeypress="return alpha(event)" placeholder="desired username">
+         <br>
+         <input name="email" id="email" class="input-username" type="text" required placeholder="email">
+         <br>
+         <input name="password" id="password" class="input-username" type="password" required placeholder="password">
+         <br>
+         <input name="cpassword" id="cpassword" class="input-username" type="password" required placeholder="confirm password">
+         <br>
+         <br>
+         <button class="indexbtn">Register</button>
+     </form>
+     
+     </div>
+     
+     </div>
+</div>
+
+<script>
+function alpha(e) {
+    var k;
+    document.all ? k = e.keyCode : k = e.which;
+    return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || (k >= 48 && k <= 57));
+}
+</script>

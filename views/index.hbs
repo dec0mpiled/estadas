@@ -1,0 +1,36 @@
+<nav class="navbar">
+ <div class="wrapper">
+  <a class="navbar-brand" href="/">Estadas</a>
+ </div>
+</nav>
+
+<div class="wrapper">
+ 
+ <div class="frame body-frame">
+  
+  <h3>Simple, <i>Powerful</i>, socializing.</h3><br>
+     
+     <div class="bit-100 posts">
+     
+     <form id="loginform" name="loginform" action="/auth/login" method="post">    
+         <h1>Login to Estadas</h1>
+         <hr style="border-top: dashed 1px;">
+         <br>
+         {{#if info}}
+          <font color="red">{{info}}</font>
+          {{/if}}
+         <input name="username" id="username" class="input-username" maxlength=16 placeholder="username">
+         <br>
+         <input name="password" id="password" class="input-username" type="password" placeholder="password">
+         <a href="/resetpassword" style="color:gray" class="notice"><i>Forgot your password?</i></a>
+         <br>
+         <br>
+         <button class="indexbtn">Login</button>
+     </form>
+     <br>
+     Don't have an account? <a href="/register" style="color:black; font-size:18px" class="notice">Register!</a>
+     
+     </div>
+     
+     </div>
+</div>
