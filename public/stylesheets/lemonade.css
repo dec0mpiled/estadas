@@ -17,6 +17,12 @@
     padding: .3em;
 
 }
+
+.header {
+    width: 100%;
+    height: 20%;
+}
+
 .bit-1 {
     width: 100%
 }

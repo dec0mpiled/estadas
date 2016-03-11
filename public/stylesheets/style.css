@@ -64,7 +64,7 @@ font-family: reglo;
 
 .navbar-right {
   float: right;
-  padding-top: .1em;
+  padding-top: 0em;
 }
 
 .navbar-item {
@@ -79,7 +79,7 @@ font-family: reglo;
 
 .navbar-brand {
   font-weight: normal;
-  font-size: 1.8em;
+  font-size: 2.0em;
   text-decoration: none;
   color: #FFF;
   font-family: indulta;
@@ -221,6 +221,55 @@ input:focus, button:focus, .btn:focus {
 /* INFOS */
 .info-error {
   color: red;
+}
+
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #33cc33;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right:0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #FFF;
+    color: #000;
 }
 
   /*==========  Non-Mobile First Method  ==========*/
