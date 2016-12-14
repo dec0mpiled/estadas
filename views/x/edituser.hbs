@@ -1,0 +1,107 @@
+<nav class="navbar">
+ <div class="wrapper">
+  <a class="navbar-brand" href="/">Estadas</a>
+ <div class="navbar-right dropdown">
+  <button class="dropbtn"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button>
+  <div class="dropdown-content">
+    <a href="/">home</a>
+    <a href="/admin"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> admin <span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+    <a href="/auth/logout">logout</a>
+</div>
+ </div>
+ </div>
+</nav>
+
+<div class="wrapper">
+    
+    <div class="frame body-frame">
+    <form name="edituser" action="/updateuser/{{users.id}}" method="post">
+    <div class="bit-100">
+    <h1>Edit User: @{{users.username}}</h1>
+    
+    <div class="bit-100 posts">
+        <h2>Name</h2>
+        <input name="namebox" class="input-username" value="{{users.name}}">
+    </div>
+    <div class="bit-100"></div>
+    <div class="bit-100 posts">
+        <h2>Username</h2>
+        <input name="usernamebox" class="input-username" value="{{users.username}}">
+    </div>
+    <div class="bit-100"></div>
+    <div class="bit-100 posts">
+        <h2>Email</h2>
+        <input name="emailbox" class="input-username" value="{{users.email}}">
+    </div>
+        <div class="bit-100"></div>
+    <div class="bit-100 posts">
+        <h2>Age</h2>
+        <input name="agebox" type="number" class="input-username" value="{{users.age}}"> 
+    </div>
+        <div class="bit-100"></div>
+    <div class="bit-100 posts">
+        <h2>Gender</h2>
+        <input name="genderbox" class="input-username" value="{{users.gender}}">
+    </div>
+    <div class="bit-100"></div>
+        <div class="bit-100 posts">
+        <h2>Bio</h2>
+        <input name="biobox" class="input-username" value="{{users.bio}}">
+    </div>
+    <div class="bit-100"></div>
+    <div class="bit-100 posts">
+        <h2>Theme Color</h2>
+        <script src="/javascripts/jscolor.js"></script>
+
+  <input name="themecolorbox" class="jscolor input-username" value="{{users.themecolor}}">
+    </div>
+    <div class="bit-100"></div>
+        <div class="bit-100 posts">
+        <h2>Admin</h2>
+        <input name="adminbox" class="input-username" value="{{users.admin}}">
+    </div>
+    <div class="bit-100"></div>
+        <div class="bit-100 posts">
+        <h2>Verified</h2>
+        <input name="verifiedbox" class="input-username" value="{{users.verified}}">
+    </div>
+    <div class="bit-100"></div>
+        <div class="bit-100 posts">
+        <h2>Avatar URL</h2>
+        <input name="avatarurlbox" class="input-username" value="{{users.avatarURL}}">
+    </div>
+    <div class="bit-100"></div>
+        <div class="bit-100 posts">
+        <h2>Cover URL (Not used)</h2>
+        <input name="coverurlbox" class="input-username" value="{{users.coverURL}}">
+    </div>
+    <div class="bit-100"></div>
+        <div class="bit-100 posts">
+        <h2>Unhashed Password</h2>
+        <input id="showa" name="xxxbox" class="input-username" readonly=1 value="*********">
+        <a onclick='show();' id="b1" class="indexbtn">Show</a>
+        <a style="display:none" id="b2" onclick='hide();' class="indexbtn">Hide</a>
+    </div>
+    <div class="bit-100"><br></div>
+    <button type="submit" class="indexbtn">Update (Caution!)</button>
+    
+    </div>
+     </form>
+     
+    </div>
+</div>
+
+<script>
+    
+    function show() {
+        document.getElementById("showa").value="{{shown}}";
+        document.getElementById("b1").style.display="none";
+        document.getElementById("b2").style.display="block";
+    }
+    function hide() {
+        document.getElementById("showa").value="*********";
+        document.getElementById("b2").style.display="none";
+        document.getElementById("b1").style.display="block";
+    }
+    
+</script>

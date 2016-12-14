@@ -1,0 +1,34 @@
+<nav class="navbar">
+ <div class="wrapper">
+  <a class="navbar-brand" href="/">Estadas</a>
+  <div class="navbar-right">
+ </div>
+ </div>
+</nav>
+
+<div class="wrapper">
+ 
+ <div class="frame body-frame">
+  
+  <h3>Estadas Password Recovery Step 2</h3><br>
+     
+     <div class="bit-100 posts">
+     
+     <form id="passform1" name="passform1" action="/auth/changepass/{{uname1}}/{{emailz1}}" method="post">    
+         {{#if info}}
+          <font color="red">{{info}}</font>
+          <br>
+          {{/if}}
+          <p id="uname" color="Black" size="6">Username: <i>{{uname1}}</i></p>
+          <br>
+          <p id="emailz" color="Black" size="6">Email: <i>{{emailz1}}</i></p>
+         <input name="confPass" id="confPass" class="input-username" type="password" placeholder="new password">
+         <br>
+         <input name="confPass1" id="confPass1" class="input-username" type="password" placeholder="confirm pass">
+         <br>
+         <button class="indexbtn">Change Password</button>
+     </form>
+     </div>
+     
+     </div>
+</div>

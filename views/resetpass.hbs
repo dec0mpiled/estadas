@@ -1,0 +1,30 @@
+<nav class="navbar">
+ <div class="wrapper">
+  <a class="navbar-brand" href="/">Estadas</a>
+  <div class="navbar-right">
+ </div>
+ </div>
+</nav>
+
+<div class="wrapper">
+ 
+ <div class="frame body-frame">
+  
+  <h3>Estadas Password Recovery Step 1</h3><br>
+     
+     <div class="bit-100 posts">
+     
+     <form id="passform" name="passform" action="/auth/checkaccount" method="post">    
+         {{#if info}}
+          <font color="red">{{info}}</font>
+          {{/if}}
+         <input name="usernamePass" id="usernamePass" class="input-username" maxlength=16 placeholder="username">
+         <br>
+         <input name="emailPass" id="emailPass" class="input-username"  placeholder="email">
+         <br>
+         <button class="indexbtn">Check Account</button>
+     </form>
+     </div>
+     
+     </div>
+</div>

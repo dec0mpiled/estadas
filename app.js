@@ -3,8 +3,10 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var hbs = require('hbs');
+var HandlebarsIntl = require("handlebars-intl");
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var socket_io    = require( "socket.io" );
 
 var User = require("./models/user");
 var Post = require("./models/post");
@@ -12,10 +14,17 @@ var Post = require("./models/post");
 var passport = require("passport"),
 LocalStrategy = require('passport-local').Strategy;
 
+var app = express();
+var io = socket_io();
+app.io = io;
+
+// routes
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
 
-var app = express();
+io.on('connection', function(socket) {
+  /// read "notes" from db and send them to "timeline" in real time
+});
 
 // Mongoose
 var mongoose = require('mongoose');
@@ -109,12 +118,27 @@ hbs.registerHelper('ifneq', function(v1, v2, options) {
   return options.inverse(this);
 });
 
+hbs.registerHelper('ifgreater', function(v1, v2, options) {
+  if(v1 > v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+hbs.registerHelper('ifless', function(v1, v2, options) {
+  if(v1 < v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
 hbs.registerHelper('or', function(v1, v2, v3, v4, options) {
   if(v1 == v2 || v3==v4) {
     return options.fn(this);
   }
   return options.inverse(this);
 });
+
+HandlebarsIntl.registerWith(hbs);
 
 // production error handler
 // no stacktraces leaked to user
@@ -126,5 +150,4 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
-module.exports = app;
+module.exports = app;  

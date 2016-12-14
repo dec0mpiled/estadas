@@ -13,8 +13,30 @@
     "find.nak": {
         "@searchLimit": 100
     },
+    "format": {
+        "jsbeautify": {
+            "@advanced": {},
+            "@braces": "end-expand",
+            "@indent_inner_html": false,
+            "@jslinthappy": "false",
+            "@keeparrayindentation": "false",
+            "@preserveempty": "true",
+            "@space_before_conditional": "true",
+            "@unescape_strings": "true"
+        }
+    },
     "general": {
         "@stripws": false
+    },
+    "golang": {
+        "@completion": true,
+        "@formatOnSave": true,
+        "@formatter": "gofmt -w \"$file\""
+    },
+    "javascript": {
+        "@formatOnSave": "false",
+        "@formatter": "esformatter -i \"$file\"",
+        "@use_jsbeautify": "true"
     },
     "language": {
         "@eslintrc": true,
@@ -36,7 +58,12 @@
             }
         }
     },
+    "php": {
+        "@completion": true,
+        "@path": ".:./vendor"
+    },
     "python": {
+        "@completion": true,
         "@path": "/usr/local/lib/python2.7/dist-packages:/usr/local/lib/python3.4/dist-packages:/usr/local/lib/python3.5/dist-packages",
         "@version": "python2"
     },

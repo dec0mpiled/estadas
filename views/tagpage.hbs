@@ -41,72 +41,11 @@
  </div>
 </nav>
 
-<div class="wrapper">
- 
- <div class="frame body-frame">
+<div class="bit-2">
   
-  <div class="bit-2 ">
-   <form name="indexpost" id="ip" action="/makepost" method="post">
-  <textarea class="textarea" name="textbox" style="height:100px" placeholder="What's going on?"></textarea>
-  <button class="indexbtn1"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Post</button>
-  <label class="indexbtn2">
-    <input type="file" onchange="upload(this.files[0])" accept="image/*"/>
-    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Add Image to your Post
-</label>
-<input class="textarea1" name="doingbox" placeholder="what are you doing/feeling?">
-
-<script>
-    /* Drag'n drop stuff */
-    function upload(file) {
-
-        /* Is the file an image? */
-        if (!file || !file.type.match(/image.*/)) return;
-        /* It is! */
-        document.body.className = "uploading";
-        /* Lets build a FormData object*/
-        var fd = new FormData(); // I wrote about it: https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
-        fd.append("image", file); // Append the file
-        var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
-        xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
-        xhr.onload = function() {
-            // Big win!
-            document.querySelector("#link").href = JSON.parse(xhr.responseText).data.link;
-            var linkval=JSON.parse(xhr.responseText).data.link;
-            document.querySelector("#url").value = JSON.parse(xhr.responseText).data.link;
-            document.body.className = "uploaded";
-        }
-        
-        xhr.setRequestHeader('Authorization', 'Client-ID 9fa1779f17f318a'); // Get your own key http://api.imgur.com/
-        
-        // Ok, I don't handle the errors. An exercise for the reader.
-        /* And now, we send the formdata */
-        xhr.send(fd);
-    }
-
-</script>
-      
-    <style>
-    #url {display: none}
-    #link {display: none}
-    #link1 {display:none}
-    .uploaded #link {display: inline}
-    .uploading #link1 {display: inline}
-</style>
-
-<div class="bit-20">
-<p id="link">Image Uploaded!</p>
-<p id="link1">Uploading Image, please wait...</p>
-<input id="url" name="url">
-<br>
-<div id="img" name="img"></div>
-</div>
-</form>
-
-<div><br></div>
-
-
- {{#each post}}
-<div class="cookie posts" style="max-width:100%; padding:.4em">
+  {{#each result}}
+   
+   <div class="cookie posts" style="max-width:100%; padding:.4em">
     
     <div class="frame">
      
@@ -120,7 +59,7 @@
       <p style="color: #ccc"><font size=2.5>{{formatDate created  day="numeric" month="long" year="numeric"}} at {{time}}</font></p>
       {{#if content}}<br>{{/if}}
       <font color="black" size=4>
-        {{{content}}}
+        {{{result.content}}}
         </font>
         
         {{#if image}}
@@ -134,8 +73,8 @@
          <div class="stats">
          
          <br><font color="gray" size=3>{{likes}} likes - {{dislikes}} dislikes - {{shares}} shares</font><br><br>
-         
-         
+         <hr class="hr">
+         <h4><br> </h4>
         <a href="/likepost/{{username}}/{{id}}" class="indexbtn3"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like</a> <a href="/dislikepost/{{username}}/{{id}}" class="indexbtn3"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span> Dislike</a> <a href="/dislikepost/{{author}}/{{id}}/home/null" class="indexbtn3"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment</a> <a href="/sharepost/{{username}}/{{id}}" class="indexbtn3"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Share</a>
  <div class="dropdown">
   <button class="indexbtn3"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></button>
@@ -150,8 +89,5 @@
     </div>
   </div>
   <div><br></div>
-  {{/each}}
-
-</div>
-</div>
+   {{/each}}
 </div>

@@ -1,0 +1,41 @@
+<nav class="navbar">
+ <div class="wrapper">
+  <a class="navbar-brand" href="/">Estadas</a>
+ <div class="navbar-right dropdown">
+  <button class="dropbtn"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button>
+  <div class="dropdown-content">
+    <a href="/">home</a>
+    <a href="/admin"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> admin <span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+    <a href="/auth/logout">logout</a>
+</div>
+ </div>
+ </div>
+</nav>
+
+<div class="wrapper">
+    
+ <div class="frame body-frame">
+     
+     <h1>All Users</h1>
+
+{{#each users}}
+<div style="border: 1px solid {{themecolor}}" class="bit-100 posts">
+<h2>{{name}}</h2>
+Username: @{{username}}<br>
+Age: {{age}}<br>
+Hashed Password: {{xhashed}}<br>
+Email: {{email}}<br>
+Bio: {{bio}}<br>
+Avatar URL: {{avatarURL}}<br>
+Cover URL: {{coverURL}} (Not in use)<br>
+Gender: {{gender}}<br>
+Theme Color: {{themecolor}}<br>
+Admin: {{admin}}<br>
+Verified: {{verified}}<br>
+<br>
+<a class="indexbtn" href="/edituser/{{id}}">Edit User</a>
+</div>
+<div class="bit-100"></div>
+{{/each}}
+</div>
+</div>

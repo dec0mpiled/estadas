@@ -1,30 +1,122 @@
 <nav class="navbar">
  <div class="wrapper">
   <a class="navbar-brand" href="/">Estadas</a>
+ <div class="navbar-right dropdown">
+  <button class="dropbtn"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button>
+  <div class="dropdown-content">
+    <a href="/">home</a>
+    <a href="/admin">admin</a>
+    <a href="/auth/logout">logout</a>
+</div>
+ </div>
  </div>
 </nav>
 
 <div class="wrapper">
     
- <div class="frame body-frame" style="border: 1px dashed black">
-     
+    <div class="frame body-frame">
+    <form name="edituser" action="/updateme/{{me.id}}" method="post">
+    <div class="bit-100">
+    <h1>Edit Your Profile</h1>
+    
+    <div class="bit-100 posts">
+        <h2>Name</h2>
+        <input name="namebox" class="input-username" value="{{me.name}}">
+    </div>
+    <div class="bit-100"></div>
+    <div class="bit-100 posts">
+        <h2>Username</h2>
+        <input name="usernamebox" class="input-username" value="{{me.username}}">
+    </div>
+    <div class="bit-100"></div>
+    <div class="bit-100 posts">
+        <h2>Email</h2>
+        <input name="emailbox" class="input-username" value="{{me.email}}">
+    </div>
+        <div class="bit-100"></div>
+    <div class="bit-100 posts">
+        <h2>Age</h2>
+        <input name="agebox" type="number" class="input-username" value="{{me.age}}"> 
+    </div>
+        <div class="bit-100"></div>
+    <div class="bit-100 posts">
+        <h2>Gender</h2>
+        <input name="genderbox" class="input-username" value="{{me.gender}}">
+    </div>
+    <div class="bit-100"></div>
+        <div class="bit-100 posts">
+        <h2>Bio</h2>
+        <input name="biobox" class="input-username" value="{{me.bio}}">
+    </div>
+    <div class="bit-100"></div>
+    <div class="bit-100 posts">
+        <h2>Profile Box Color</h2>
+        <script src="/javascripts/jscolor.js"></script>
+
+  <input name="themecolorbox" class="jscolor input-username" value="{{me.themecolor}}">
+    </div>
+    <div class="bit-100"></div>
+        <div class="bit-100 posts">
+        <h2>Avatar URL</h2>
+        <label class="indexbtn">
+    <input type="file" onchange="upload(this.files[0])" accept="image/*"/>
+    Upload New Profile Picture
+</label>
+    <style>
+    #url {display:none}
+    #link {display: none}
+    #link1 {display:none}
+    .uploaded #link {display: inline}
+    .uploading #link1 {display: inline}
+</style>
 <div class="bit-20">
-  <img src="{{me.avatarURL}}" width=150 height=150 style="border:1px solid black; border-radius: 2px">
-         </div>
-         
-         
-         <div class="bit-2">
-         
-         
-         <h2> {{me.name}} </h2>
-         <h3><font color="#33cc33">@{{me.username}}</font></h3>
-         <p>Age: {{me.age}}</p>
-         <p>Gender: {{me.gender}}</p>
-         <p>Email: {{me.email}}</p>
-         <p>Bio: {{me.bio}}</p>
-         
-     </div>
-     
-     </div>
-     
+<p id="link">Image Uploaded!</p>
+<p id="link1">Uploading Image, please wait...</p>
+<input id="url" name="avatarurlbox" value={{me.avatarURL}}>
+<br>
 </div>
+    </div>
+    
+<!--   <div class="bit-100"></div>
+        <div class="bit-100 posts">
+        <h2>Cover URL (Not used)</h2>
+        <input name="coverurlbox" class="input-username" value="{{me.coverURL}}">
+    </div> !-->
+    <div class="bit-100"><br></div>
+    <button type="submit" class="indexbtn">Update (Caution!)</button>
+    
+    </div>
+     </form>
+     
+    </div>
+</div>
+
+<script>
+    /* Drag'n drop stuff */
+    function upload(file) {
+
+        /* Is the file an image? */
+        if (!file || !file.type.match(/image.*/)) return;
+        /* It is! */
+        document.body.className = "uploading";
+        /* Lets build a FormData object*/
+        var fd = new FormData(); // I wrote about it: https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
+        fd.append("image", file); // Append the file
+        var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
+        xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
+        xhr.onload = function() {
+            // Big win!
+            document.querySelector("#link").href = JSON.parse(xhr.responseText).data.link;
+            var linkval=JSON.parse(xhr.responseText).data.link;
+            document.querySelector("#url").value = JSON.parse(xhr.responseText).data.link;
+            document.body.className = "uploaded";
+        }
+        
+        xhr.setRequestHeader('Authorization', 'Client-ID 9fa1779f17f318a'); // Get your own key http://api.imgur.com/
+        
+        // Ok, I don't handle the errors. An exercise for the reader.
+        /* And now, we send the formdata */
+        xhr.send(fd);
+    }
+
+</script>

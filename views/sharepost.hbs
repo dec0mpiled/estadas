@@ -1,0 +1,42 @@
+<nav class="navbar">
+ <div class="wrapper">
+  <a class="navbar-brand" href="/">Estadas</a>
+  <div class="navbar-right">
+ </div>
+ 
+  <div class="navbar-right dropdown">
+  <button class="dropbtn"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></button>
+  <div class="dropdown-content">
+    <a href="/user/{{user.username}}">my profile</a>
+    <a href="#">discover posts</a>
+    <a href="/auth/logout">logout</a>
+</div>
+ </div>
+ 
+ <div class="navbar-right dropdown">
+  <button class="dropbtn"><span class="glyphicon glyphicon-send" aria-hidden="true"></span><font size=4 color="#000">&nbsp; {{#if user.notes}} {{#ifgreater user.notes 99}} (99+){{/ifgreater}}{{#ifless user.notes 99}} ({{user.notes}}){{/ifless}}{{#ifeq user.notes 99}} ({{user.notes}}){{/ifeq}} {{/if}}</font></button>
+  <div class="dropdown-content">
+   {{#if mynotifications}}
+   {{#each mynotifications}}
+    <a href="/post/{{red}}">@{{from}} {{value}}!</a>
+    {{/each}}
+    {{else}}
+    <a>No new notifications!</a>
+    {{/if}}
+</div>
+ </div>
+ 
+ <!--
+    <div class="navbar-right dropdown">
+  <button class="dropbtn"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> <font color="red">2</font></button>
+  <div class="dropdown-content">
+    <a href="#"><font color="red">NEW:</font> @drew liked your post!</a>
+    <a href="#"><font color="red">NEW:</font> @owebboy followed you!</a>
+    <a href="#">Happy Birthday!</a>
+    <a href="#">@joshyyy posted to you!</a>
+    <a href="#">@kataldi sent you a message!</a>
+</div>
+</div>!-->
+
+ </div>
+</nav>

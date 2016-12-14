@@ -8,14 +8,14 @@
 }
 
 body {
-  background-color:#FFF;
+  background-color:#f2f2f2;
   font-family: expressway;
 }
 
 .posts {
   background-color:#fff;
   width: 100%;
-  box-shadow: 0 0 10px #ccc
+  box-shadow: 0 0 3px #999999;
 }
 
 .posts1 {
@@ -104,22 +104,40 @@ font-family: reglo;
 .form-rel {
   position: relative;
 }
-textarea {
+.textarea {
   width: 100%;
-  font-size: 1.4em;
+  font-size: 1em;
   color: #111;
   height: 150px;
-  padding: 1em;
+  padding: .9em;
   border: 1px solid #000;
   border-radius: 2px;
   outline: 0;
   resize: none;
-  
 }
-textarea:hover, textarea:active, textarea:focus, .input-gif:hover, .input-gif:active, .input-gif:focus, .input-title:hover, .input-title:active, .input-title:focus, .input-username:hover, .input-username:active, .input-username:focus, .input-password:hover, .input-password:active, .input-password:focus {
-  border: 1px solid #02313A;
+
+.textarea1 {
+  width: 40%;
+  font-size: 1em;
+  color: #111;
+  height: 31px;
+  padding: .3em;
+  border: 1px solid #000;
+  border-radius: 2px;
   outline: 0;
+  resize: none;
 }
+
+span.dropt {border-bottom: thin dotted; background: #ffeedd;}
+span.dropt:hover {text-decoration: none; background: #ffffff; z-index: 6; }
+span.dropt span {position: absolute; left: -9999px;
+  margin: 20px 0 0 0px; padding: 3px 3px 3px 3px;
+  border-style:solid; border-color:black; border-width:1px; z-index: 6;}
+span.dropt:hover span {left: 2%; background: #ffffff;} 
+span.dropt span {position: absolute; left: -9999px;
+  margin: 4px 0 0 0px; padding: 3px 3px 3px 3px; 
+  border-style:solid; border-color:black; border-width:1px;}
+span.dropt:hover span {margin: 20px 0 0 170px; background: #ffffff; z-index:6;} 
 
 .input-username, .input-password {
   border: 1px solid #000;
@@ -159,7 +177,7 @@ input:focus, button:focus, .btn:focus {
     color: black; 
     border: 1px solid black;
     padding: 5px 7px;
-    width:100%;
+    min-width:100%;
     text-align: center;
     text-decoration: none;
     color:black;
@@ -175,6 +193,94 @@ input:focus, button:focus, .btn:focus {
   background-color:#33cc33;
   color: white;
   text-decoration: none;
+}
+
+.indexbtn1 {
+    background-color: white; 
+    color: black; 
+    border: 1px solid black;
+    padding: 5px 7px;
+    max-width:100%;
+    text-align: center;
+    text-decoration: none;
+    color:black;
+    float:right;
+    font-size: 15px;
+    border-radius: 1px;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+}
+
+.indexbtn1:hover {
+  border: 1px solid #33cc33;
+  background-color:#33cc33;
+  color: white;
+  text-decoration: none;
+}
+
+.indexbtn2 {
+    background-color: white; 
+    color: black; 
+    border: 1px solid black;
+    padding: 5px 7px;
+    max-width:100%;
+    text-align: center;
+    text-decoration: none;
+    color:black;
+    float:left;
+    font-size: 15px;
+    border-radius: 1px;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+}
+
+.indexbtn2:hover {
+  border: 1px solid #33cc33;
+  background-color:#33cc33;
+  color: white;
+  text-decoration: none;
+}
+
+.indexbtn3 {
+    background-color: white; 
+    color: black; 
+    border: 1px solid black;
+    padding: 5px 7px;
+    max-width:100%;
+    text-align: center;
+    text-decoration: none;
+    color:black;
+    display:inline-block;
+    font-size: 15px;
+    border-radius: 1px;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+}
+
+.hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.indexbtn3:hover {
+  border: 1px solid #33cc33;
+  background-color:#33cc33;
+  color: white;
+  text-decoration: none;
+}
+
+.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
 
 .btn {
@@ -222,16 +328,20 @@ input:focus, button:focus, .btn:focus {
 .info-error {
   color: red;
 }
+input[type="file"] {
+    display: none;
+}
 
 
 /* Dropdown Button */
 .dropbtn {
     background-color: #33cc33;
     color: white;
-    padding: 16px;
+    padding: 10px;
     font-size: 16px;
     border: none;
     cursor: pointer;
+    height: 40px;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -246,8 +356,27 @@ input:focus, button:focus, .btn:focus {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,.2);
     right:0;
+}
+
+ul {
+   list-style-position: inside;
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.5); }
+
+
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right:1;
 }
 
 /* Links inside the dropdown */
